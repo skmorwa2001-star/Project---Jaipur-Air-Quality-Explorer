@@ -119,4 +119,13 @@ if st.button("Estimate US AQI", use_container_width=True):
     else:
         category="Hazardous 🟤"       
 
-    st.info(f"Air Quality: **{category}**")     
+    st.info(f"Air Quality: **{category}**")   
+
+# Footer
+
+st.divider()
+
+st.caption(
+    "Jaipur Air Quality Explorer | "
+    "Machine Learning powered AQI estimation"
+)
