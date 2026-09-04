@@ -84,3 +84,25 @@ with col3:
         min_value=0.0,
         value=5.0
     )
+
+# Prediction
+
+st.divider()
+
+if st.button("Estimate US AQI", use_container_width=True):
+    input_data=pd.DataFrame({
+        "pm10":[pm10],
+        "pm2_5":[pm2_5],
+        "carbon_monoxide":[carbon_monoxide],
+        "nitrogen_dioxide":[nitrogen_dioxide],
+        "ozone":[ozone],
+        "aersol_optical_depth":[aersol_optical_depth],
+        "dust":[dust],
+        "uv_index":[uv_index]
+    })
+
+    prediction=model.predict(input_data)[0]
+
+    st.success(f"Estimated US AQI:{prediction:,2f}")
+
+    
