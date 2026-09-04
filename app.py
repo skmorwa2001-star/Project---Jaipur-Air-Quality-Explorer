@@ -1,6 +1,20 @@
 import streamlit as st
 import pandas as pd
 import joblib
+from pathlib import Path
+
+
+FEATURES = [
+    "pm10",
+    "pm2_5",
+    "carbon_monoxide",
+    "nitrogen_dioxide",
+    "sulphur_dioxide",
+    "ozone",
+    "aerosol_optical_depth",
+    "dust",
+    "uv_index",
+]
 
 # Page configuration
 st.set_page_config(
@@ -10,7 +24,8 @@ st.set_page_config(
 
 # Load Model
 
-model=joblib.load("gradient_boosting_aqi_model.pkl")
+model_path = Path(__file__).with_name("gradient_boosting_aqi_model.pkl")
+model = joblib.load(model_path)
 
 # Title
 
@@ -67,8 +82,8 @@ with col2:
     )
 
 with col3:
-    aersol_optical_depth= st.number_input(
-        "Aersol Optical Depth",
+    aerosol_optical_depth = st.number_input(
+        "Aerosol Optical Depth",
         min_value=0.0,
         value=0.2
     )    
@@ -96,14 +111,14 @@ if st.button("Estimate US AQI", use_container_width=True):
         "carbon_monoxide":[carbon_monoxide],
         "nitrogen_dioxide":[nitrogen_dioxide],
         "ozone":[ozone],
-        "aersol_optical_depth":[aersol_optical_depth],
+        "aerosol_optical_depth":[aerosol_optical_depth],
         "dust":[dust],
         "uv_index":[uv_index]
-    })
+    }, columns=FEATURES)
 
     prediction=model.predict(input_data)[0]
 
-    st.success(f"Estimated US AQI:{prediction:,2f}")
+    st.success(f"Estimated US AQI: {prediction:,.2f}")
 
     # AQI Category
     if prediction <=50:
