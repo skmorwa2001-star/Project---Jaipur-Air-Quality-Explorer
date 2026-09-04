@@ -105,4 +105,18 @@ if st.button("Estimate US AQI", use_container_width=True):
 
     st.success(f"Estimated US AQI:{prediction:,2f}")
 
-    
+    # AQI Category
+    if prediction <=50:
+        category="Good 🟢"
+    elif prediction <=100:
+        category="Moderate 🟡"
+    elif prediction <=150:
+        category="Unhealthy for Sensitive Groups 🟠"
+    elif prediction <=200:
+        category="Unhealthy 🔴"
+    elif prediction <=300:
+        category="Very Unhealthy 🟣"            
+    else:
+        category="Hazardous 🟤"       
+
+    st.info(f"Air Quality: **{category}**")     
