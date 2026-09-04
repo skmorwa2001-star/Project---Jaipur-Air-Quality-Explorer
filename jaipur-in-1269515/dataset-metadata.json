@@ -1,0 +1,47 @@
+{
+  "title": "Dataset: Air Quality Dataset for Jaipur",
+  "id": "nitirajkulkarni/jaipur-in-1269515",
+  "licenses": [
+    {
+      "name": "CC0-1.0"
+    }
+  ],
+  "subtitle": "Coverage: 2022-08-01 to 2026-02-18 | Historical AQI and pollutants",
+  "description": "This dataset contains historical air quality time series for Jaipur covering 2022-08-01 to 2026-02-18. It includes key air pollution indicators such as AQI indices and major pollutants, plus city metadata including coordinates, administrative areas, and population. Use this dataset to analyze long-run air quality trends in Jaipur, compare Jaipur with other cities, and build models that link air quality to urban characteristics. Air quality values are retrieved from the Open-Meteo Air Quality service using the cams_global domain, and city metadata is derived from the GeoNames city list. Nitiraj Kulkarni",
+  "keywords": [
+    "Air Quality",
+    "AQI",
+    "PM2.5",
+    "PM10",
+    "Air Pollution",
+    "Urban Air Pollution",
+    "Environmental Data",
+    "Public Health",
+    "Time Series",
+    "City Dataset",
+    "Open-Meteo",
+    "GeoNames",
+    "Jaipur",
+    "Jaipur Air Quality",
+    "Jaipur AQI",
+    "IN"
+  ],
+  "resources": [
+    {
+      "path": "city_info.csv",
+      "description": "City identifiers, coordinates, admin areas, and population."
+    },
+    {
+      "path": "air_quality_historical.csv",
+      "description": "Historical air quality time series for the city."
+    },
+    {
+      "path": "data_dictionary.csv",
+      "description": "Column definitions and units for all files."
+    },
+    {
+      "path": "README.md",
+      "description": "Dataset overview and file guide."
+    }
+  ]
+}
