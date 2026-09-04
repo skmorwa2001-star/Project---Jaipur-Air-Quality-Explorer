@@ -7,3 +7,7 @@ st.set_page_config(
   page_title="Jaipur Air Quality Explorer",
   layout='wide'
 )
+
+# Load Model
+
+model=joblib.load("gradient_boosting_aqi_model.pkl")
